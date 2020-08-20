@@ -1,5 +1,4 @@
 "use strict";
-// 壹.数组类目
 // 删除排序数组中的重复项
 // 方法一:
 // function removeDuplicates(nums: number[]): number {
