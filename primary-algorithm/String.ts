@@ -43,26 +43,59 @@
 
     
     // 方法二;
-        function reverse(num: number): number {
-            debugger;
-            let resultArr: Array<string> = [];
-            let intToStr: string = num.toString();
-            for(let i = intToStr.length-1;i > 0;i--){
-                resultArr.push(intToStr[i]);
-            }
-            if(intToStr[0] == "-"){
-                resultArr.unshift("-");
-            }
-            resultArr.push(intToStr[0]);
-            let resultNum: number = parseInt(resultArr.join(""));
-            if(resultNum <= Math.pow(-2,31) || resultNum >= Math.pow(2,31) - 1 ){
-                return 0;
-            }
+        // function reverse(num: number): number {
+        //     debugger;
+        //     let resultArr: Array<string> = [];
+        //     let intToStr: string = num.toString();
+        //     for(let i = intToStr.length-1;i > 0;i--){
+        //         resultArr.push(intToStr[i]);
+        //     }
+        //     if(intToStr[0] == "-"){
+        //         resultArr.unshift("-");
+        //     }
+        //     resultArr.push(intToStr[0]);
+        //     let resultNum: number = parseInt(resultArr.join(""));
+        //     // 这一步, 防止数字过大导致的计算进度不准;
+        //     // if(resultNum <= Math.pow(-2,31) || resultNum >= Math.pow(2,31) - 1 ){
+        //     //     return 0;
+        //     // }
             
-            console.log(resultNum);
-            return resultNum;
+        //     console.log(resultNum);
+        //     return resultNum;
+            
+        // };
+        
+        // reverse(102);
+        
 
-        };
+
         
-        reverse(102);
+
+
+    
+
+
+
+
+
+
+// 字符串中的第一个唯一字符;
+    function firstUniqChar(str: string): number {
+        let alpha = 'abcdefghijklmnopqrstuvwxyz';
+        let first = str.length;
+        for(let i = 0; i < alpha.length; i++) {
+            let index = str.indexOf(alpha[i]);
+            if(index != -1) {
+                first = index;
+            }
+        }
+
+        console.log(first);
         
+    };
+
+    firstUniqChar('asdf');
+
+
+
+
