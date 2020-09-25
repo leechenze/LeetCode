@@ -80,22 +80,59 @@
 
 
 // 字符串中的第一个唯一字符;
+    // 方法一: 耗时最快, 效率最高的一段程序;
+    // function firstUniqChar(str: string): number {
+    //     const alpha = 'abcdefghijklmnopqrstuvwxyz';
+    //     let first = str.length;
+    //     for (let i = 0; i < alpha.length; ++i) {
+    //         let index = str.indexOf(alpha[i]);
+    //         if (index !== -1 && index === str.lastIndexOf(alpha[i])) {
+    //             if (index < first) {
+    //                 first = index;
+    //             }
+    //         }
+    //     }
+    //     console.log(first);
+    //     return first === str.length ? -1 : first;
+    // };
+
+    // firstUniqChar('asdaf');
+    
+    
+    
+    // 方法二: 
+    // function firstUniqChar(str: string): number {
+    //     const length = str.length;
+    //     for (let i = 0; i < length; i++) {
+    //         if (str.lastIndexOf(str[i]) === str.indexOf(str[i])) {
+    //             console.log(i);
+    //             return i
+    //         }
+    //     }
+    //     return -1
+    // };
+    // firstUniqChar('sdafsda');
+    
+    
+    // 方法三:
     function firstUniqChar(str: string): number {
-        let alpha = 'abcdefghijklmnopqrstuvwxyz';
-        let first = str.length;
-        for(let i = 0; i < alpha.length; i++) {
-            let index = str.indexOf(alpha[i]);
-            if(index != -1) {
-                first = index;
+        let temp:any = {};
+        for (let i = 0; i < str.length; i++) {
+            if (!temp[str[i]]) {
+                temp[str[i]] = 1;
+            } else {
+                temp[str[i]]++;
             }
         }
-
-        console.log(first);
-        
+        for (let i = 0; i < str.length; i++) {
+            if (temp[str[i]] === 1) {
+                console.log(i);
+                return i
+            }
+        }
+        return -1
     };
-
-    firstUniqChar('asdf');
-
-
-
-
+    firstUniqChar('sdafsda');
+    
+    
+    
