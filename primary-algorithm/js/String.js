@@ -83,23 +83,37 @@
 // };
 // firstUniqChar('sdafsda');
 // 方法三:
-function firstUniqChar(str) {
-    let temp = {};
-    for (let i = 0; i < str.length; i++) {
-        if (!temp[str[i]]) {
-            temp[str[i]] = 1;
-        }
-        else {
-            temp[str[i]]++;
+// function firstUniqChar(str: string): number {
+//     let temp:any = {};
+//     for (let i = 0; i < str.length; i++) {
+//         if (!temp[str[i]]) {
+//             temp[str[i]] = 1;
+//         } else {
+//             temp[str[i]]++;
+//         }
+//     }
+//     for (let i = 0; i < str.length; i++) {
+//         if (temp[str[i]] === 1) {
+//             console.log(i);
+//             return i
+//         }
+//     }
+//     return -1
+// };
+// firstUniqChar('sdafsda');
+// 有效的字母异位词: 异位词是指两个字符串所包含的字母的出现次数都相同,只是顺序不一样;
+// 方法一思路: 对于s字符串中的每个字符char，若t中有char，则在t中删除char。最后若t为空，说明刚刚好。
+function isAnagram(s, t) {
+    if (s.length !== t.length)
+        return false;
+    for (let char of s) {
+        if (t.indexOf(char) !== -1) {
+            let index = t.indexOf(char);
+            t = t.slice(0, index) + t.slice(index + 1);
         }
     }
-    for (let i = 0; i < str.length; i++) {
-        if (temp[str[i]] === 1) {
-            console.log(i);
-            return i;
-        }
-    }
-    return -1;
+    if (t)
+        return false;
+    return true;
 }
 ;
-firstUniqChar('sdafsda');
