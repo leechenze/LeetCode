@@ -126,7 +126,6 @@
     //     }
     //     for (let i = 0; i < str.length; i++) {
     //         if (temp[str[i]] === 1) {
-    //             console.log(i);
     //             return i
     //         }
     //     }
@@ -142,17 +141,40 @@
 
 // 有效的字母异位词: 异位词是指两个字符串所包含的字母的出现次数都相同,只是顺序不一样;
     // 方法一思路: 对于s字符串中的每个字符char，若t中有char，则在t中删除char。最后若t为空，说明刚刚好。
-    function isAnagram (s: string, t: string) {
-        if (s.length !== t.length) return false;
-        for (let char of s) {
-            if (t.indexOf(char) !== -1) {
-                let index = t.indexOf(char);
-                t = t.slice(0, index) + t.slice(index + 1);
-            }
-        }
-        if (t) return false;
-        return true;
-    };
+    // function isAnagram (s: string, t: string) {
+    //     if (s.length !== t.length) return false;
+    //     for (let char of s) {
+    //         if (t.indexOf(char) !== -1) {
+    //             let index = t.indexOf(char);
+    //             t = t.slice(0, index) + t.slice(index + 1);
+    //         }
+    //     }
+    //     if (t) return false;
+    //     console.log(true);
+    //     return true;
+    // };
+    // isAnagram('anagram', 'nagaram');
+
+    // 方法二思路: 将两个字符串转换成数组，然后排序，最后在转换成字符串，比较这两个字符串是否相等即可;
+    // function isAnagram (s: string, t: string) {
+    //     if (s.length !== t.length) return false;
+    //     let array_s = Array.from(s).sort().join(''),
+    //         array_t = Array.from(t).sort().join('');
+    //     console.log(true);
+    //     return array_s === array_t;
+    // };
+    // isAnagram('anagram', 'nagaram');
+
+
+
+
+
+
+
+
+
+// 验证回文串
+
 
 
 
