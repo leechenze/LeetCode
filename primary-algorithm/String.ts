@@ -173,7 +173,27 @@
 
 
 
-// 验证回文串
+// 验证回文串: 回文串即是将一段字符串中的除了正常字母数字外的字符(空格,标点符号等); 首位每一个字符都应该是对应的;
+    // 比如: "A man, a plan, a canal: Panama" 首位每一个字符都是对应的;
+    // function isPalindrome(str:string): boolean {
+        
+    //     str = str.replace(/[^0-9a-zA-Z]/g, '').toLowerCase(); //替换后全小写化
+    //     console.log(str);
+    //     var left = 0;
+    //     var right = str.length-1;
+    //     while(left<right){
+    //         if(str[left]!=str[right]){
+    //             console.log(false);
+    //             return false;
+    //         }
+    //         left++;
+    //         right--;
+    //     }
+    //     console.log(true);
+    //     return true;
+    // };
+    // isPalindrome("A man, a plan, a canal: Panama");
+    // isPalindrome("race a car");
 
 
 
@@ -182,6 +202,59 @@
 
 
 
+
+
+
+
+// 字符串转换整数;
+    // function myAtoi(str: string): number {
+    //     var numb = parseInt(str, 10);
+    //     if (isNaN(numb)) {
+    //         console.log(0);
+    //         return 0;
+    //     }else if (numb < Math.pow(-2, 31) || numb > Math.pow(2, 31)-1) {
+    //         console.log(numb < Math.pow(-2, 31) ? Math.pow(-2, 31) : Math.pow(2, 31)-1);
+    //         return numb < Math.pow(-2, 31) ? Math.pow(-2, 31) : Math.pow(2, 31)-1;
+    //     }else {
+    //         console.log(numb);
+    //         return numb;
+    //     }
+    // }
+    // myAtoi('-91283472332');
+
+
+
+
+
+
+
+
+// 实现strStr(); strstr方法: 判断第二个字符串中的第一位字符在第一个字符中的索引位, 没有返回-1;
+    function strStr(haystack: string, needle: string): number {
+        var ans : number = -1
+        for(var i:number=0;i<=haystack.length-needle.length;){
+            if( needle !== haystack.slice(i,i+(needle.length)) ){
+                i++
+            }else{
+                ans = i
+                console.log(ans);
+                return ans
+            }
+        }
+        console.log(ans);
+        return ans
+    }
+    strStr('aaaaa', 'bba');
+
+
+
+
+
+
+
+
+// 外观数列
+    
 
 
 
