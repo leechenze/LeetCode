@@ -160,20 +160,19 @@
 // }
 // myAtoi('-91283472332');
 // 实现strStr(); strstr方法: 判断第二个字符串中的第一位字符在第一个字符中的索引位, 没有返回-1;
-function strStr(haystack, needle) {
-    var ans = -1;
-    for (var i = 0; i <= haystack.length - needle.length;) {
-        if (needle !== haystack.slice(i, i + (needle.length))) {
-            i++;
-        }
-        else {
-            ans = i;
-            console.log(ans);
-            return ans;
-        }
-    }
-    console.log(ans);
-    return ans;
-}
-strStr('aaaaa', 'bba');
+// function strStr(haystack: string, needle: string): number {
+//     var ans : number = -1
+//     for(var i:number=0;i<=haystack.length-needle.length;){
+//         if( needle !== haystack.slice(i,i+(needle.length)) ){
+//             i++
+//         }else{
+//             ans = i
+//             console.log(ans);
+//             return ans
+//         }
+//     }
+//     console.log(ans);
+//     return ans
+// }
+// strStr('aaaaa', 'bba');
 // 外观数列
