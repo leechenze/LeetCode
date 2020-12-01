@@ -176,30 +176,40 @@
 // }
 // strStr('aaaaa', 'bba');
 // 外观数列
-function countAndSay(n) {
-    // 参数范围在1-30之间;
-    if (n == 1) {
-        return '1';
-    }
-    else if (n > 30) {
-        return 'false';
-    }
-    ;
-    // 递归调用取结果;
-    let pre = countAndSay(n - 1);
-    let result = '';
-    let count = 1;
-    for (let i = 0; i < pre.length; i++) {
-        if (pre[i] == pre[i + 1]) {
-            //计算有多少个该数
-            count++;
+// function countAndSay(n: number): string{
+//     // 参数范围在1-30之间;
+//     if(n == 1) {return '1'} else if (n > 30) {return 'false'};
+//     // 递归调用取结果;
+//     let pre: string = countAndSay(n-1);
+//     let result: string = '';
+//     let count: number = 1;
+//     for(let i = 0; i < pre.length; i++) {
+//         if(pre[i] == pre[i + 1]) {
+//             //计算有多少个该数
+//             count++;
+//         } else {
+//             result += count + pre[i];
+//             //已经将值加给result了，可以恢复为1，继续下一次
+//             count = 1;
+//         }
+//     }
+//     return result;
+// }
+// console.log(countAndSay(4));
+// 最长公共前缀
+function longestCommonPrefix(strs) {
+    let globalStr = '', globalObj = {};
+    for (let i = 0; i < strs.length; i++) {
+        let areaStr = '', lenAggregate = 'lenAggregate' + i;
+        globalObj[lenAggregate] = [];
+        console.log(globalObj);
+        // console.log(strs[i]);
+        for (let n = 0; n < strs[i].length; n++) {
+            // console.log(strs[i][n]);
+            areaStr = strs[i][n];
         }
-        else {
-            result += count + pre[i];
-            //已经将值加给result了，可以恢复为1，继续下一次
-            count = 1;
-        }
     }
-    return result;
+    return '';
 }
-console.log(countAndSay(4));
+;
+console.log(longestCommonPrefix(["flower", "flow", "flight"]));
