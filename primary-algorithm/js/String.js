@@ -197,57 +197,84 @@
 // }
 // console.log(countAndSay(4));
 // 最长公共前缀
-function longestCommonPrefix(strs) {
-    let globalStr = '', globalObj = {}, globalLen = 0, globalMaxLenArr = [];
-    for (let i = 0; i < strs.length; i++) {
-        let areaStr = '', CountTotalLen = 0, lenAggregate = 'lenAggregate' + i;
-        globalObj[lenAggregate] = [];
-        for (let n = 0; n < strs[i].length; n++) {
-            globalObj[lenAggregate].push(strs[i][n]);
-            // 记录当前数组的长度;
-            CountTotalLen++;
-        }
-        if (CountTotalLen > globalLen) {
-            // 获取最长的数组
-            globalMaxLenArr = globalObj[lenAggregate];
-            // 记录上一次的数组长度;
-            globalLen = CountTotalLen;
-        }
-    }
-    // 进行遍历每一项数组;
-    for (let arrVal of Object.values(globalObj)) {
-        // 再次进行遍历每一位数组中的每一项;
-        arrVal.forEach((itemEle, ind) => {
-            // 用最长的数组, 进行遍历;
-            globalMaxLenArr.forEach(function (item, ind) {
-                if (itemEle == item) {
-                    // 现在得到出现次数最多字符;
-                    globalStr += item;
-                }
-            });
-        });
-    }
-    let temporaryObj = {}, temporaryCountArr = [], temporaryCount = 0;
-    globalStr.split('').forEach((item, ind) => {
-        if (temporaryObj[item]) {
-            temporaryObj[item]++;
-        }
-        else {
-            temporaryObj[item] = 1;
-        }
-    });
-    for (let key in temporaryObj) {
-        if (temporaryCount < temporaryObj[key]) {
-            temporaryCount = temporaryObj[key];
-            temporaryCountArr.shift();
-            temporaryCountArr.push(key);
-        }
-        if (temporaryCount == temporaryObj[key] && temporaryCountArr.indexOf(key) == -1) {
-            temporaryCountArr.push(key);
-        }
-    }
-    var finalRes = temporaryCountArr.join('');
-    return finalRes;
-}
-;
-console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+// function longestCommonPrefix(strs: Array<string>): string {
+//     interface StrKeyAndArrVal {
+//         // 需要定义一个活动的键值来在之后的循环中使用;
+//         // key类型必须是string;
+//         // val类型必须是array;
+//         [strArrStrKeyName: string]: Array<string>;
+//     }
+//     let globalStr: String = '',
+//         globalObj: StrKeyAndArrVal = {},
+//         globalLen: number = 0,
+//         globalMaxLenArr: string[] = [];
+//     for (let i = 0; i < strs.length; i++ ) {
+//         let areaStr: string = '',
+//             CountTotalLen: number = 0,
+//             lenAggregate: string = 'lenAggregate' + i;
+//         globalObj[lenAggregate] = [];
+//         for (let n = 0; n < strs[i].length; n++) {
+//             globalObj[lenAggregate].push(strs[i][n]);
+//             // 记录当前数组的长度;
+//             CountTotalLen ++;
+//         }
+//         if(CountTotalLen > globalLen) {
+//             // 获取最长的数组
+//             globalMaxLenArr = globalObj[lenAggregate];
+//             // 记录上一次的数组长度;
+//             globalLen = CountTotalLen;
+//         }
+//     }
+//     // 进行遍历每一项数组;
+//     for(let arrVal of Object.values(globalObj)) {
+//         // 再次进行遍历每一位数组中的每一项;
+//         arrVal.forEach( (itemEle:any,ind:any) => {
+//             // 用最长的数组, 进行遍历;
+//             globalMaxLenArr.forEach(function (item, ind) {
+//                 if(itemEle == item) {
+//                     // 现在得到出现次数最多字符;
+//                     globalStr += item;
+//                 }
+//             })
+//         });
+//     }
+//     // 以上代码灵感改进于......
+//     // globalMaxLenArr.forEach(function (item, ind) {
+//     //     // console.log(item);
+//     //     for(let key of Object.keys(globalObj)) {
+//     //         console.log('\n\n\n');
+//     //         for(let arrVal of globalObj[key]) {
+//     //             if(arrVal == item) {
+//     //                 globalStr += item;
+//     //             }
+//     //         }
+//     //     }
+//     // })
+//     // console.log(globalStr);
+//     interface arbitrarilyObj {
+//         [anyName: string ]: string | number
+//     }
+//     let temporaryObj: arbitrarilyObj = {},
+//         temporaryCountArr: Array<any> = [],
+//         temporaryCount: number = 0;
+//     globalStr.split('').forEach( (item, ind) => {
+//         if(temporaryObj[item]) {
+//             temporaryObj[item] ++;
+//         }else{
+//             temporaryObj[item] = 1;
+//         }
+//     })
+//     for(let key in temporaryObj) {
+//         if(temporaryCount < temporaryObj[key]){
+//             temporaryCount = temporaryObj[key]
+//             temporaryCountArr.shift();
+//             temporaryCountArr.push(key);
+//         }
+//         if(temporaryCount == temporaryObj[key] && temporaryCountArr.indexOf(key) == -1){
+//             temporaryCountArr.push(key);
+//         }
+//     }
+//     var finalRes = temporaryCountArr.join('');
+//     return finalRes;
+// };
+// console.log(longestCommonPrefix(["flower","flow","flight"]));
